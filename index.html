@@ -307,6 +307,8 @@ document.addEventListener('DOMContentLoaded', function() {
 		// Create the anchor element for the large image
 		var largeAnchor = document.createElement('a');
 		largeAnchor.href = images[0];
+		largeAnchor.target = "_blank";
+		largeAnchor.rel = "noreferrer noopener";
 		largeAnchor.setAttribute('imageanchor', '1');
 		largeAnchor.style.cssText = 'margin-left: 1em; margin-right: 1em;';
 
@@ -334,7 +336,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			smallAnchor.href = images[i];
 			smallAnchor.classList.add('image-list');
 			if (i === 0) smallAnchor.classList.add('active');
-			smallAnchor.style.background = 'center no-repeat url(' + 'https://imagecdn.app/v2/image/'+encodeURIComponent(images[i] + '_50x50.jpg)');
+			smallAnchor.style.background = 'center no-repeat url(' + 'https://imagecdn.app/v2/image/'+encodeURIComponent(images[i] + '_50x50.jpg')+')';
 			smallAnchor.title = title + ' #' + (i + 1);
 			smallDiv.appendChild(smallAnchor);
 		}
