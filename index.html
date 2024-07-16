@@ -207,7 +207,7 @@ clonedMenu.querySelectorAll('li > ul').forEach(function(ul) {
 			});
 			event.target.classList.add('active');
 			document.querySelector('.image-holder img').src = '';
-			document.querySelector('.image-holder img').src = 'https://imagecdn.app/v2/image/'+encodeURIComponent(event.target.href);
+			document.querySelector('.image-holder img').src = 'https://imagecdn.app/v2/image/'+encodeURIComponent(event.target.href.split('/').slice(0, 5).join('/') + '.' + event.target.href.split('.').pop());
 			document.querySelector('.image-holder a').href = event.target.href;
 		}
 	});
@@ -314,7 +314,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 		// Create the large image element
 		var largeImg = document.createElement('img');
-		largeImg.src = 'https://imagecdn.app/v2/image/'+encodeURIComponent(images[0]);
+		largeImg.src = 'https://imagecdn.app/v2/image/'+encodeURIComponent(images[0].split('/').slice(0, 5).join('/') + '.' + images[0].split('.').pop());
 		largeImg.alt = title;
 		largeImg.title = title;
 		largeImg.border = '0';
@@ -336,7 +336,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			smallAnchor.href = images[i];
 			smallAnchor.classList.add('image-list');
 			if (i === 0) smallAnchor.classList.add('active');
-			smallAnchor.style.background = 'center no-repeat url(' + 'https://imagecdn.app/v2/image/'+encodeURIComponent(images[i] + '_50x50.jpg')+')';
+			smallAnchor.style.background = 'center no-repeat url(' + 'https://imagecdn.app/v2/image/'+encodeURIComponent(images[i].split('/').slice(0, 5).join('/') + '.' + images[i].split('.').pop() + '_50x50.jpg')+')';
 			smallAnchor.title = title + ' #' + (i + 1);
 			smallDiv.appendChild(smallAnchor);
 		}
