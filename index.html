@@ -312,7 +312,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 		// Create the large image element
 		var largeImg = document.createElement('img');
-		largeImg.src = 'https://umbrella.erroris.me/_sndbox/_emb-reborn/dishub/api/v1/img?src='+images[0];
+		largeImg.src = 'https://imagecdn.app/v2/image/'+images[0];
 		largeImg.alt = title;
 		largeImg.title = title;
 		largeImg.border = '0';
@@ -331,10 +331,10 @@ document.addEventListener('DOMContentLoaded', function() {
 		// Create small image elements and append them to the small div
 		for (var i = 0; i < images.length; i++) {
 			var smallAnchor = document.createElement('a');
-			smallAnchor.href = 'https://umbrella.erroris.me/_sndbox/_emb-reborn/dishub/api/v1/img?src='+images[i];
+			smallAnchor.href = 'https://imagecdn.app/v2/image/'+images[i];
 			smallAnchor.classList.add('image-list');
 			if (i === 0) smallAnchor.classList.add('active');
-			smallAnchor.style.background = 'center no-repeat url(' + 'https://umbrella.erroris.me/_sndbox/_emb-reborn/dishub/api/v1/img?src='+images[i] + '_50x50.jpg)';
+			smallAnchor.style.background = 'center no-repeat url(' + 'https://imagecdn.app/v2/image/'+images[i] + '_50x50.jpg)';
 			smallAnchor.title = title + ' #' + (i + 1);
 			smallDiv.appendChild(smallAnchor);
 		}
