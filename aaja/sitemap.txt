@@ -1,0 +1,12 @@
+https://prtyln.example.com/aaja/sitemap-001.txt
+https://prtyln.example.com/aaja/sitemap-002.txt
+https://prtyln.example.com/aaja/sitemap-003.txt
+https://prtyln.example.com/aaja/sitemap-004.txt
+https://prtyln.example.com/aaja/sitemap-005.txt
+https://prtyln.example.com/aaja/sitemap-006.txt
+https://prtyln.example.com/aaja/sitemap-007.txt
+https://prtyln.example.com/aaja/sitemap-008.txt
+https://prtyln.example.com/aaja/sitemap-009.txt
+https://prtyln.example.com/aaja/sitemap-010.txt
+https://prtyln.example.com/aaja/sitemap-011.txt
+https://prtyln.example.com/aaja/sitemap-012.txt
