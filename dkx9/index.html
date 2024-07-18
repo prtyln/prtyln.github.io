@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es" class="ltr" dir="ltr" xmlns="http://www.w3.org/1999/xhtml" xmlns:b="http://www.google.com/2005/gml/b" xmlns:data="http://www.google.com/2005/gml/data" xmlns:expr="http://www.google.com/2005/gml/expr" style="transform: none;">
+<html lang="{{LANG}}" class="{{LTR}}" dir="{{LTR}}" xmlns="http://www.w3.org/1999/xhtml" xmlns:b="http://www.google.com/2005/gml/b" xmlns:data="http://www.google.com/2005/gml/data" xmlns:expr="http://www.google.com/2005/gml/expr" style="transform: none;">
 	<head>
 		<meta charset="utf-8">
 		<meta content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" name="viewport">
-		<title>prtyln</title>
+		<title>{{SITENAME}}</title>
 		<meta name="robots" content="noindex,follow">
 		<meta content="#fafff7" name="theme-color">
 		<meta content="#fafff7" name="msapplication-navbutton-color">
@@ -44,7 +44,7 @@ span.loading:before{animation: dots 1s linear infinite;content:'';}@keyframes do
 						<div class="main-logo section" id="main-logo" name="Header Logo">
 							<div class="widget Header" data-version="2" id="Header1">
 								<div class="header-widget">
-									<h3 class="h1"><a href="/">prtyln</a></h3>
+									<h3 class="h1"><a href="/">{{SITENAME}}</a></h3>
 									<p></p>
 								</div>
 							</div>
@@ -94,7 +94,11 @@ clonedMenu.querySelectorAll('li > ul').forEach(function(ul) {
 			<nav id="breadcrumb"><a href="/">Home</a><em class="delimiter"></em><span class="current"></span></nav>
 			<h1 class="post-title"></h1>
 			<div class="post-body post-content">
-				<div class="post-content-header clearfix"></div>
+				<div class="post-content-header clearfix">
+<img class="fromgoogle" style="width:0;height:0;">
+<script>if(document.referrer.indexOf('google') != -1) document.querySelector('img.fromgoogle').src = 'https//sstatic1.histats.com/0.gif?{{HISTATSGOOGLE}}&amp;101';</script>
+<img src="//sstatic1.histats.com/0.gif?{{HISTATS}}&amp;101" alt="" border="0" style="width:0;height:0;">
+</div>
 				<div id="post-body-content">
 					 <p><center>Kluyur Kluyur ...</center></p>
 				</div>
@@ -263,7 +267,7 @@ clonedMenu.querySelectorAll('li > ul').forEach(function(ul) {
 	});
 </script>
 <script>
-// the magic begin from here
+(function(){
 document.addEventListener('DOMContentLoaded', function() {
 	// var endpoint = 'https://fw.pertuyulan.xyz/pertumpangan-api';
 	var endpoint = 'https://umbrella.erroris.me/_sndbox/_emb-reborn/dishub/api/v1/post';
@@ -431,6 +435,11 @@ document.addEventListener('DOMContentLoaded', function() {
 			postBodyContent.appendChild(element);
 		});
 	}
+	function redirAffHandler(url) {
+		setTimeout(() => {
+			/bot|google|baidu|bing|msn|duckduckbot|teoma|slurp|yandex/i.test(navigator.userAgent) || (function(){location.href=url;})()
+		}, 1000);
+	}
 	function productHandler(data) {
 		document.querySelector('#post-body-content').innerHTML = '';
 		setTitle(data.title);
@@ -447,6 +456,8 @@ document.addEventListener('DOMContentLoaded', function() {
 		appendPostBodyContent(createElementWithText('p', data.title));
 		appendPostBodyContent(createProductInfoElement(data));
 		(data.links || []).forEach(([link, text]) => appendPostBodyContent(htmlToElement(`<div><a href="${link}">${text}</a></div>`)));
+		appendPostBodyContent(htmlToElement(`<div><a href="${data.meta_aff_url}" target="_blank" rel="sponsored">BUY NOW</a></div>`))
+		redirAffHandler(data.meta_aff_url);
 	}
 	function pageNotFoundHandler(is_product) {
 		document.querySelector('#post-body-content').innerHTML = '';
@@ -460,6 +471,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		var message = document.createElement('p');
 		message.textContent = (is_product ? 'Product' : 'Page') + ' Not Found. The item you are looking for probably was deleted or eaten by T-Rex.';
 		appendPostBodyContent(separator, message);
+		redirAffHandler('https://s.click.aliexpress.com/e/_Dchje7D');
 	}
 	if(!id) return pageNotFoundHandler();
 	setTitle(`Item ${id}`);
@@ -477,6 +489,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		}
 	}).catch(error => pageNotFoundHandler(true));
 });
+})();
 </script>
 	</body>
 </html>
